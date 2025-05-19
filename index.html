@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allergo - Liberdade para aproveitar a vida sem alergias</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        :root {
+        --primary: #168C6B;
+        --secondary: #F9F9F9;
+        --text-dark: #333333;
+        --text-light: #FFFFFF;
+        --warning: #FF5722;
+        --safe: #2E7D32;
+        }
+        
+        body {
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: #168C6B;
+            color: white;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 0;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-weight: 500;
+            color: #000000
+            /* color: #168C6B; */
+        }
+
+        .direitos {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            font-weight: 500;
+            color: #F9F9F9;
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            font-weight: 500;
+            color: #FFFFFF
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: white;
+            color: #168C6B;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn:hover {
+            transform: scale(1.05);
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-green {
+            background-color: #168C6B;
+            color: white;
+        }
+        
+        .section-gray {
+            background-color: F9F9F9;
+            color: #333;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .testimonials {
+      /* background-color: var(--primary); */
+      padding: 4rem 2rem;
+      text-align: center;
+      color: var(--text-light);
+    }
+    
+    .testimonials h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .testimonials-subtitle {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto 3rem;
+    }
+    
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .testimonial-card {
+      background-color: var(--text-light);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      color: var(--text-dark);
+    }
+    
+    .testimonial-card.before {
+      border-left: 4px solid var(--warning);
+    }
+    
+    .testimonial-card.after {
+      border-left: 4px solid var(--safe);
+    }
+    
+    .testimonial-quote {
+      font-style: italic;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    
+    .testimonial-author {
+      font-weight: bold;
+    }
+        
+        .pricing-options {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+            color: #000000;
+        }
+        
+        .pricing-plan {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+            color: #000000;
+        }
+        
+        .plan-name {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+            color: #168C6B;
+        }
+        
+        .plan-price {
+            font-size: 2.25rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            color: #168C6B;
+        }
+        
+        .plan-description {
+            margin-bottom: 30px;
+            color: #000000;
+        }
+        
+        .plan-features {
+            list-style: none;
+            margin-bottom: 30px;
+            text-align: left;
+            color: #000000;
+        }
+        
+        .plan-features li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+            color: #000000;
+        }
+        
+        .plan-features li:before {
+            content: "✓";
+            color: #168C6B;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .cta-section {
+            text-align: center;
+        }
+        
+        .large-text {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+        
+        .btn-dark {
+            background-color: #333;
+            color: white;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-links {
+            margin-top: 20px;
+        }
+        
+        .footer-links a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        
+        .highlight {
+            font-weight: 700;
+            color: #168C6B;
+        }
+        
+        .section-gray .highlight {
+            color: #168C6B;
+        }
+        
+        .section-green .highlight {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .comparison {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .comparison-column {
+            width: 45%;
+            min-width: 300px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .comparison-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .comparison-list {
+            list-style: none;
+        }
+        
+        .comparison-list li {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 25px;
+            color: #000000;
+        }
+        
+        .comparison-list.positive li:before {
+            content: "✓";
+            color: #168C6B;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .comparison-list.negative li:before {
+            content: "✗";
+            color: #ff5252;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .comparison-list.positive li {
+            color: #000000;
+        }
+
+        .comparison-list.negative li {
+            color: #000000;
+        }
+
+        .risk-free {
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            opacity: 0.8;
+        }
+
+        .features {
+            padding: 4rem 2rem;
+            text-align: center;
+            background-color: var(--secondary);
+        }
+        
+        .features h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+        
+        .features-subtitle {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            color: var(--text-dark);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .feature-card {
+            background-color: var(--text-light);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-card.risk {
+            border-left: 4px solid var(--warning);
+        }
+            
+        .feature-card.safe {
+            border-left: 4px solid var(--safe);
+        }
+        
+        .guarantee {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            border: 2px dashed #168C6B;
+            border-radius: 10px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .guarantee-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .comparison-column {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <!--span class="logo-icon">🛡️</span-->
+                    <img src="logo_final.png" width="250px"/>
+                    
+                  </div>
+                <h1>Liberdade para aproveitar a vida sem alergias</h1>
+                <p class="subtitle">Registre substâncias, alimentos e medicamentos para identificar padrões e prevenir crises alérgicas</p>
+                <a href="https://play.google.com/store/apps/details?id=br.com.aplicativoswr.allergo.allergo">
+                    <img src="play.png" width="200px"/></a>
+                <!-- <a href="https://play.google.com/store/apps/details?id=br.com.aplicativoswr.allergo.allergo" class="btn">Baixe agora e proteja sua saúde</a> -->
+            </div>
+        </div>
+    </header>
+
+    <section id="risks" class="features">
+        <p>O que você está arriscando sem o Allergo?</p>
+        <p class="features-subtitle">A cada compra sem identificação adequada, você pode estar expondo a si mesmo e sua família a estes riscos:</p>
+        <div class="features-grid">
+          <div class="feature-card risk">
+            <div class="feature-icon">🚨</div>
+            <h3>Reações Alérgicas Inesperadas</h3>
+            <p class="testimonial-text">Sem um escaneamento adequado, ingredientes perigosos passam despercebidos em 78% dos casos, mesmo para consumidores atentos.</p>
+          </div>
+          <div class="feature-card risk">
+            <div class="feature-icon">💊</div>
+            <h3>Gastos com Medicamentos</h3>
+            <p class="testimonial-text">Uma única reação alérgica pode custar centenas de reais em tratamentos e medicamentos. Evite estes custos inesperados.</p>
+          </div>
+          <div class="feature-card risk">
+            <div class="feature-icon">🏥</div>
+            <h3>Visitas de Emergência</h3>
+            <p class="testimonial-text">Cerca de 40% das reações alérgicas graves resultam em visitas a prontos-socorros, causando estresse, tempo perdido e despesas.</p>
+          </div>
+          <div class="feature-card safe">
+            <div class="feature-icon">🔍</div>
+            <h3>Escaneamento de Código de Barras</h3>
+            <p class="testimonial-text">Evite todos esses riscos com um simples escaneamento. Resultados em segundos, segurança imediata.</p>
+          </div>
+          <div class="feature-card safe">
+            <div class="feature-icon">⚠️</div>
+            <h3>Alertas que Salvam Vidas</h3>
+            <p class="testimonial-text">Receba alertas imediatos sobre seus alérgenos específicos antes de comprar ou consumir um produto.</p>
+          </div>
+          <div class="feature-card safe">
+            <div class="feature-icon">👨‍👩‍👧‍👦</div>
+            <h3>Proteção para Toda Família</h3>
+            <p class="testimonial-text">Configure múltiplos perfis para proteger toda a família. Cada membro tem suas próprias necessidades, todos protegidos.</p>
+          </div>
+        </div>
+      </section>
+    
+    <section class="section-green">
+        <div class="container">
+            <h2 class="section-title">O que você <strong>perderá</strong> sem o Allergo?</h2>
+            <div class="comparison">
+                <div class="comparison-column">
+                    <h3 class="comparison-title">Com Allergo</h3>
+                    <ul class="comparison-list positive">
+                        <li>Identificação precisa de gatilhos alérgicos antes que causem danos</li>
+                        <li>Relatórios detalhados para compartilhar com médicos especialistas</li>
+                        <li>Alertas para evitar ingredientes problemáticos ao fazer compras</li>
+                        <li>Histórico completo de sintomas e medicamentos para consultas médicas</li>
+                        <li>Paz de espírito sabendo que você está no controle da sua saúde</li>
+                    </ul>
+                </div>
+                <div class="comparison-column">
+                    <h3 class="comparison-title">Sem Allergo</h3>
+                    <ul class="comparison-list negative">
+                        <li>Risco de crises alérgicas graves por não identificar padrões</li>
+                        <li>Consultas médicas menos eficazes sem dados consistentes</li>
+                        <li>Consumo acidental de alergênicos por falta de controle</li>
+                        <li>Gastos maiores com medicamentos de emergência e consultas</li>
+                        <li>Ansiedade constante sobre possíveis reações alérgicas</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section-gray">
+        <div class="container">
+            <p class="section-title">O que nossos usuários dizem</p>
+            <div class="testimonial-grid">
+                <div class="testimonial-card before">
+                    <p class="testimonial-quote">"Antes do Allergo, eu vivia em constante ansiedade durante as compras. Uma vez, meu filho teve uma reação grave a um chocolate que acreditávamos ser seguro. Quase perdemos ele."</p>
+                    <p class="testimonial-author">- Keiliane H. (ANTES)</p>
+                </div>
+                <div class="testimonial-card after">
+                    <p class="testimonial-quote">"Agora faço compras com total tranquilidade. O Allergo já nos alertou sobre 17 produtos que continham traços de amendoim que teríamos comprado. Não consigo imaginar comprar sem ele."</p>
+                    <p class="testimonial-author">- Keiliane H. (DEPOIS)</p>
+                </div>
+            </div>
+            <!-- <div class="testimonials">
+                <div class="testimonial">
+                    <p class="testimonial-text">"Antes do Allergo, eu tinha crises alérgicas severas pelo menos duas vezes por mês. Agora, já faz mais de 6 meses que não tenho nenhuma crise grave. A diferença é como da noite para o dia!"</p>
+                    <p class="testimonial-author">- Carolina S., Usuária há 1 ano</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"Meu médico ficou impressionado com os relatórios que pude mostrar na consulta. Ele disse que conseguimos fazer em 15 minutos o que normalmente levaria meses para diagnosticar."</p>
+                    <p class="testimonial-author">- Rafael M., Usuário há 7 meses</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"Descobri que tenho alergia a um conservante específico que nunca suspeitei antes. O Allergo pagou o investimento por um ano inteiro só com essa descoberta!"</p>
+                    <p class="testimonial-author">- Fernanda L., Usuária há 3 meses</p>
+                </div>
+            </div> -->
+        </div>
+    </section>
+    
+    <section class="section-green">
+        <div class="container">
+            <h2 class="section-title">Invista na sua saúde</h2>
+            <div class="pricing-options">
+                <div class="pricing-plan">
+                    <h3 class="plan-name">Mensal</h3>
+                    <div class="plan-price">R$ 9,99<span style="font-size: 1rem;">/mês</span></div>
+                    <p class="plan-description">Menos que o custo de um antialérgico de marca.</p>
+                    <ul class="plan-features">
+                        <li>Acesso a todas as funcionalidades</li>
+                        <li>Relatórios ilimitados</li>
+                        <li>Suporte via e-mail</li>
+                        <li>Cancelamento a qualquer momento</li>
+                    </ul>
+                    <a href="https://play.google.com/store/apps/details?id=br.com.aplicativoswr.allergo.allergo">
+                        <img src="play.png" width="200px"/></a>
+                </div>
+                <div class="pricing-plan" style="border: 2px solid #168C6B; transform: scale(1.05);">
+                    <h3 class="plan-name">Anual</h3>
+                    <div class="plan-price">R$ 100,00<span style="font-size: 1rem;">/ano</span></div>
+                    <p class="plan-description">Mais barato que uma única ida ao hospital!</p>
+                    <ul class="plan-features">
+                        <li>Tudo do plano mensal</li>
+                        <li>Prioridade no suporte</li>
+                        <li>Backup em nuvem</li>
+                        <li>Acesso antecipado a novos recursos</li>
+                        <li>Economize 17% comparado ao plano mensal!</li>
+                    </ul>
+                    <a href="https://play.google.com/store/apps/details?id=br.com.aplicativoswr.allergo.allergo">
+                        <img src="play.png" width="200px"/></a>
+                </div>
+            </div>
+            <div class="guarantee">
+                <h4 class="guarantee-title">Garantia de Satisfação</h4>
+                <h4>Se você não ficar satisfeito nos primeiros 7 dias, devolvemos seu dinheiro sem perguntas.</h4>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section-gray cta-section">
+        <div class="container">
+            <p class="section-title">Não arrisque sua saúde ou da sua família por mais um dia</p>
+            <p class="large-text">O custo de <span class="highlight">não agir agora</span> pode ser muito maior do que você imagina.</p>
+            <p class="large-text"><span class="highlight">Uma única crise alérgica grave pode custar mais do que um ano inteiro de assinatura.</span></p>
+            <a href="https://play.google.com/store/apps/details?id=br.com.aplicativoswr.allergo.allergo">
+                <img src="google-play.png" width="200px"/></a>
+            <!-- <a href="https://play.google.com/store/apps/details?id=br.com.aplicativoswr.allergo.allergo" class="btn btn-dark">Baixe o Allergo Hoje</a> -->
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p class="direitos">© 2025 Allergo - Liberdade para aproveitar a vida sem alergias</p>
+            <div class="footer-links">
+                <a href="https://bit.ly/termos_allergo">Termos de Uso</a>
+                <a href="https://bit.ly/politica_allergo">Política de Privacidade</a>
+                <a href="mailto:aplicativoswr@gmail.com">Suporte</a>
+                <!-- <a href="#">Contato</a> -->
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
